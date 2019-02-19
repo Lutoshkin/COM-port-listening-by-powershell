@@ -1,0 +1,1 @@
+$COM = [System.IO.Ports.SerialPort]::getportnames(); $port= new-Object System.IO.Ports.SerialPort $COM,9600,None,8,one; $port.DtrEnable = "true"; $port.Open(); do {$line=$port.ReadExisting() > log_COM-port.txt; Wait-Event -Timeout 5} while ($port.IsOpen)
